@@ -11,6 +11,7 @@ const GlobalSettingsModel = createSettingsModel(null, {
     failed: true,
     broken: true,
     skipped: true,
+    pending: true,
     unknown: true,
     passed: true,
     knownissuesonly: true

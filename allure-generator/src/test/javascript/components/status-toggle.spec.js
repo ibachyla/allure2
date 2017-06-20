@@ -3,7 +3,7 @@ import StatusToggleView from 'components/status-toggle/StatusToggleView';
 
 describe('StatusToggle', function () {
     const statusesKey = 'testStatusKey';
-    const statistic = {failed: '4', broken: '3', passed: '2', knownissuesonly: '0', skipped: '1', unknown: '0'};
+    const statistic = {failed: '4', broken: '3', passed: '2', knownissuesonly: '0', skipped: '1', pending: '0', unknown: '0'};
 
     function StatusElement(el) {
         this.activeItems = () => el.find('.status-toggle__item').find('.y-label').toArray().map(item => item.textContent.trim());
