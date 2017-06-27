@@ -17,5 +17,6 @@ public class StatusDetails implements Serializable {
     protected String message;
     protected String trace;
     protected boolean flaky;
+    protected boolean muted;
 
 }

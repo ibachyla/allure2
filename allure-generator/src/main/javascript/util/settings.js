@@ -17,7 +17,11 @@ const GlobalSettingsModel = createSettingsModel(null, {
     knownissuesonly: true
   },
   showGroupInfo: false,
-  totalResultSelectOption: 'scenariosWithoutExamplesStatistic'
+  totalResultSelectOption: 'scenariosWithoutExamplesStatistic',
+  stepDisplayParams: {
+    showStepStartTime: true,
+    showDebugLogs: false
+  }
 });
 const settings = new GlobalSettingsModel();
 settings.fetch();

@@ -183,6 +183,7 @@ public class Allure2Plugin implements Reader {
     private StatusDetails convert(final io.qameta.allure.model.StatusDetails details) {
         return Objects.isNull(details) ? null : new StatusDetails()
                 .setFlaky(details.isFlaky())
+                .setMuted(details.isMuted())
                 .setMessage(details.getMessage())
                 .setTrace(details.getTrace());
     }
