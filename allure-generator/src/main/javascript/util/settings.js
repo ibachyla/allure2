@@ -21,7 +21,8 @@ const GlobalSettingsModel = createSettingsModel(null, {
   stepDisplayParams: {
     showStepStartTime: true,
     showDebugLogs: false
-  }
+  },
+  performanceShowPercentage: false
 });
 const settings = new GlobalSettingsModel();
 settings.fetch();
