@@ -14,7 +14,8 @@ const GlobalSettingsModel = createSettingsModel(null, {
     pending: true,
     unknown: true,
     passed: true,
-    knownissuesonly: true
+    knownissuesonly: true,
+    notcovered: true
   },
   showGroupInfo: false,
   totalResultSelectOption: 'scenariosWithoutExamplesStatistic',
@@ -22,7 +23,8 @@ const GlobalSettingsModel = createSettingsModel(null, {
     showStepStartTime: true,
     showDebugLogs: false
   },
-  performanceShowPercentage: false
+  performanceShowPercentage: false,
+  isCoverageChecked: false
 });
 const settings = new GlobalSettingsModel();
 settings.fetch();
