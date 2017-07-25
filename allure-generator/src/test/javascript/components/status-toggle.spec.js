@@ -3,7 +3,7 @@ import StatusToggleView from 'components/status-toggle/StatusToggleView';
 
 describe('StatusToggle', function () {
     const statusesKey = 'testStatusKey';
-    const statistic = {failed: '4', broken: '3', passed: '2', knownissuesonly: '0', skipped: '1', pending: '0', notcovered: '0'};
+    const statistic = {broken: '3', failed: '4', knownissuesonly: '0', pending: '0', skipped: '1', passed: '2', notcovered: '0'};
 
     function StatusElement(el) {
         this.activeItems = () => el.find('.status-toggle__item').find('.y-label').toArray().map(item => item.textContent.trim());
@@ -20,7 +20,7 @@ describe('StatusToggle', function () {
 
     it('should render buttons according to settings and statistics', () => {
         expect(this.el.items()).toEqual(Object.values(statistic));
-        expect(this.el.activeItems()).toEqual(['4', '3']);
+        expect(this.el.activeItems()).toEqual(['3', '4']);
     });
 
     it('should update model on click', () => {
