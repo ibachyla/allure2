@@ -16,7 +16,8 @@ const GlobalSettingsModel = createSettingsModel(null, {
     passed: true,
     knownissuesonly: true
   },
-  showGroupInfo: false
+  showGroupInfo: false,
+  totalResultSelectOption: 'scenariosWithoutExamplesStatistic'
 });
 const settings = new GlobalSettingsModel();
 settings.fetch();
