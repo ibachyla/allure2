@@ -25,7 +25,6 @@ import io.qameta.allure.owner.OwnerPlugin;
 import io.qameta.allure.retry.RetryPlugin;
 import io.qameta.allure.severity.SeverityPlugin;
 import io.qameta.allure.suites.SuitesPlugin;
-import io.qameta.allure.summary.SummaryPlugin;
 import io.qameta.allure.tags.TagsPlugin;
 import io.qameta.allure.timeline.TimelinePlugin;
 import io.qameta.allure.widget.WidgetsPlugin;
@@ -70,7 +69,6 @@ public class ConfigurationBuilder {
                 new AttachmentsPlugin(),
                 new MailPlugin(),
                 new WidgetsPlugin(),
-                new SummaryPlugin(),
                 new ExecutorPlugin(),
                 new LaunchPlugin(),
                 new Allure1Plugin(),
