@@ -4,6 +4,13 @@ function byName(a, b) {
     return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
 }
 
+function byStart(a, b) {
+    if (a.time && a.time.start && b.time && b.time.start) {
+        return a.time.start < b.time.start ? -1 : 1;
+    }
+    return 1;
+}
+
 function byDuration(a, b) {
     if (a.time && a.time.duration && b.time && b.time.duration) {
         return a.time.duration < b.time.duration ? -1 : 1;
@@ -47,6 +54,8 @@ export default function getComparator({sorter, ascending}) {
     switch (sorter) {
         case 'sorter.name':
             return (a, b) => compare(a, b, byName, byName, direction);
+        case 'sorter.start':
+            return (a, b) => compare(a, b, byStart, byStart, direction);
         case 'sorter.duration':
             return (a, b) => compare(a, b, byDuration, byMaxDuration, direction);
         case 'sorter.status':

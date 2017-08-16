@@ -34,7 +34,7 @@ export default function createSettingsModel(pluginName, defaults) {
     }
 
     getTreeSorting(key) {
-      return this.get(key) || {ascending: true, sorter: 'sorter.name'};
+      return this.get(key) || {ascending: true, sorter: 'sorter.start'};
     }
   };
 }

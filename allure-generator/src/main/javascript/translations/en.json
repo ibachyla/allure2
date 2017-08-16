@@ -13,6 +13,7 @@
   },
   "sorter": {
     "name": "name",
+    "start": "start time",
     "duration": "duration",
     "status": "status"
   },

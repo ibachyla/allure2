@@ -27,12 +27,13 @@ describe('Tree', function () {
         };
     }
 
-    function caseNode({name = 'node', status = 'passed', uid = fakeUid(), duration = 1} = {}) {
+    function caseNode({name = 'node', status = 'passed', uid = fakeUid(), duration = 1, start = 1} = {}) {
         return {
             name: name,
             uid: uid,
             status: status,
             time: {
+                start: start,
                 duration: duration
             }
         };
@@ -44,7 +45,7 @@ describe('Tree', function () {
         this.infos = () => el.find('.node__info');
     }
 
-    function sortTree({sorter = 'sorter.name', ascending = true}) {
+    function sortTree({sorter = 'sorter.start', ascending = true}) {
         settings.save(sorterSettingsKey, {sorter, ascending});
     }
 
@@ -80,18 +81,18 @@ describe('Tree', function () {
             groupNode({
                 name: 'A group node',
                 children: [
-                    caseNode({name: 'First node', status: 'passed', duration: 4}),
-                    caseNode({name: 'Second node', status: 'failed', duration: 2}),
-                    caseNode({name: 'Third node', status: 'skipped', duration: 3})
+                    caseNode({name: 'First node', status: 'passed', duration: 4, start: 2}),
+                    caseNode({name: 'Second node', status: 'failed', duration: 2, start: 1}),
+                    caseNode({name: 'Third node', status: 'skipped', duration: 3, start: 3})
                 ]
             }),
             groupNode({
                 name: 'B group node',
                 children: [
-                    caseNode({name: 'Node in B group', status: 'passed', duration: 1})
+                    caseNode({name: 'Node in B group', status: 'passed', duration: 1, start: 4})
                 ]
             }),
-            caseNode({name: 'Other node', status: 'passed', duration: 5}),
+            caseNode({name: 'Other node', status: 'passed', duration: 5, start: 5}),
         ]
     });
 
@@ -125,19 +126,30 @@ describe('Tree', function () {
             expect(page.nodes().length).toBe(7);
         });
 
-        it('should be sorted by name by default', () => {
+        it('should be sorted by start time by default', () => {
             expect(page.node(0).text()).toMatch(/A group node/);
-            expect(page.node(1).text()).toMatch(/First node/);
+            expect(page.node(1).text()).toMatch(/Second node/);
             expect(page.node(3).text()).toMatch(/Third node/);
         });
 
-        it('should be able to sort by name', () => {
+        it('should be able to sort by start time', () => {
             sortTree({ascending: false});
             expect(page.node(0).text()).toMatch(/B group node/);
             expect(page.node(2).text()).toMatch(/A group node/);
             expect(page.node(3).text()).toMatch(/Third node/);
 
             sortTree({ascending: true});
+            expect(page.node(0).text()).toMatch(/A group node/);
+            expect(page.node(1).text()).toMatch(/Second node/);
+        });
+
+        it('should be able to sort by name', () => {
+            sortTree({sorter: 'sorter.name', ascending: false});
+            expect(page.node(0).text()).toMatch(/B group node/);
+            expect(page.node(2).text()).toMatch(/A group node/);
+            expect(page.node(3).text()).toMatch(/Third node/);
+
+            sortTree({sorter: 'sorter.name', ascending: true});
             expect(page.node(0).text()).toMatch(/A group node/);
             expect(page.node(1).text()).toMatch(/First node/);
         });

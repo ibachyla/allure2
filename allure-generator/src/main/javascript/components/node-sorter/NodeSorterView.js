@@ -4,7 +4,7 @@ import settings from '../../util/settings';
 import template from './NodeSorterView.hbs';
 import {View} from 'backbone.marionette';
 
-const AVAILABLE_SORTERS = ['sorter.name', 'sorter.duration', 'sorter.status'];
+const AVAILABLE_SORTERS = ['sorter.name', 'sorter.start', 'sorter.duration', 'sorter.status'];
 
 @className('sorter')
 class NodeSorterView extends View {
