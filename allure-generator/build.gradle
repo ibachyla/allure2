@@ -64,8 +64,9 @@ dependencies {
 
     testCompile('junit:junit')
     testCompile('org.assertj:assertj-core')
-    testCompile('org.mockito:mockito-core')
-    testCompile('org.slf4j:slf4j-simple')
+    testCompile('org.powermock:powermock-api-mockito2:1.7.1')
+    testCompile('org.powermock:powermock-module-junit4:1.7.1')
+    testCompile('uk.org.lidalia:slf4j-test:1.2.0')
     testCompile('org.apache.commons:commons-lang3')
     testCompile('com.google.guava:guava')
 }
