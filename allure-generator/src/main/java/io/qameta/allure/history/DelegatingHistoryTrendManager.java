@@ -1,12 +1,11 @@
 package io.qameta.allure.history;
 
-import java.util.List;
-import java.util.Map;
-
+import io.qameta.allure.core.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.qameta.allure.core.Configuration;
+import java.util.List;
+import java.util.Map;
 
 public class DelegatingHistoryTrendManager implements IHistoryTrendManager {
 
