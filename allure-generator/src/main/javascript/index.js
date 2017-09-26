@@ -28,6 +28,7 @@ import './plugins/widget-mappings';
 
 import './plugins/widget-summary';
 import './plugins/widget-history-trend';
+import './plugins/widget-timeline/index.js';
 import './plugins/widget-environment-configuration';
 import './plugins/widget-known-issues';
 
