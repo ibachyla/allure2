@@ -1,0 +1,15 @@
+[ {
+  "start" : 1506951379940,
+  "stop" : 1506951411833,
+  "duration" : 31893,
+  "minDuration" : 31893,
+  "maxDuration" : 31893,
+  "sumDuration" : 31893
+}, {
+  "start" : 1506951080235,
+  "stop" : 1506951110851,
+  "duration" : 30616,
+  "minDuration" : 30616,
+  "maxDuration" : 30616,
+  "sumDuration" : 30616
+} ]

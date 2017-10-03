@@ -19,7 +19,7 @@ import io.qameta.allure.executor.ExecutorPlugin;
 import io.qameta.allure.graph.GraphPlugin;
 import io.qameta.allure.history.HistoryPlugin;
 import io.qameta.allure.history.HistoryTrendPlugin;
-import io.qameta.allure.history.NullHistoryTrendManager;
+import io.qameta.allure.history.NullTrendManager;
 import io.qameta.allure.launch.LaunchPlugin;
 import io.qameta.allure.mail.MailPlugin;
 import io.qameta.allure.owner.OwnerPlugin;
@@ -65,7 +65,7 @@ public final class DummyReportGenerator {
             new OwnerPlugin(),
             new CategoriesPlugin(),
             new HistoryPlugin(),
-            new HistoryTrendPlugin(new NullHistoryTrendManager()),
+            new HistoryTrendPlugin(new NullTrendManager<>()),
             new GraphPlugin(),
             new TimelinePlugin(),
             new SuitesPlugin(),

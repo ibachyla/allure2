@@ -14,15 +14,24 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.nio.file.Path;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static io.qameta.allure.executor.ExecutorPlugin.EXECUTORS_BLOCK_NAME;
-import static io.qameta.allure.history.HistoryTrendPlugin.HISTORY_TREND_BLOCK_NAME;
-import static io.qameta.allure.testdata.TestData.*;
+import static io.qameta.allure.testdata.TestData.createLaunchResults;
+import static io.qameta.allure.testdata.TestData.createSingleLaunchResults;
+import static io.qameta.allure.testdata.TestData.randomHistoryTrendItems;
+import static io.qameta.allure.testdata.TestData.randomTestResult;
 import static java.util.Collections.singletonMap;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * @author charlie (Dmitry Baev).
@@ -30,8 +39,10 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class HistoryTrendPluginTest {
 
+    private static final String HISTORY_TREND_BLOCK_NAME = "history-trend";
+
     @Mock
-    private IHistoryTrendManager historyTrendManager;
+    private ITrendManager<HistoryTrendItem> historyTrendManager;
 
     @SuppressWarnings("unchecked")
     @Test

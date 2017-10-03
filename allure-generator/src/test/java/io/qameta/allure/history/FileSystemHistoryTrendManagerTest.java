@@ -115,8 +115,8 @@ public class FileSystemHistoryTrendManagerTest
         final Path history = Files.createDirectories(temporaryFolder.newFolder().toPath().resolve("history"));
         final Path trend = history.resolve(HISTORY_TREND_JSON);
         TestData.unpackFile("history-trend-old.json", trend);
-        expectedException.expect(IoHistoryTrendException.class);
-        expectedException.expectMessage("Could not read history-trend file " + trend);
+        expectedException.expect(IoTrendException.class);
+        expectedException.expectMessage("Could not read trend file " + trend);
         historyTrendManager.setHistoryDirectory(history);
         mockStatic(Files.class);
         when(Files.newInputStream(trend)).thenThrow(new IOException());
@@ -137,7 +137,7 @@ public class FileSystemHistoryTrendManagerTest
     @PrepareForTest({Files.class, FileSystemHistoryTrendManager.class})
     public void testSaveIOException() throws Exception
     {
-        expectedException.expect(IoHistoryTrendException.class);
+        expectedException.expect(IoTrendException.class);
         Path historyDirectory = temporaryFolder.newFolder().toPath();
         historyTrendManager.setHistoryDirectory(historyDirectory);
         mockStatic(Files.class);
